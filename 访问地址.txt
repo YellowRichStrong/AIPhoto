@@ -1,0 +1,39 @@
+🎉 AI Tool 服务已启动！
+
+═══════════════════════════════════════
+
+🏠 主页地址：
+   http://localhost:8000
+
+📱 功能页面：
+   http://localhost:8000/index.html          - 主页（所有功能）
+   http://localhost:8000/remove-bg.html     - AI一键去背景
+   http://localhost:8000/photo-upscale.html - AI图片放大
+   http://localhost:8000/photo-restore.html  - AI老照片修复
+   http://localhost:8000/denoise.html        - AI图片去噪
+
+🔌 后端API：
+   http://localhost:5001/api/health         - 健康检查
+
+═══════════════════════════════════════
+
+💡 使用步骤：
+1. 打开浏览器，访问上面的任意一个页面
+2. 点击上传按钮或拖拽图片
+3. 等待AI处理完成
+4. 下载处理后的图片
+
+⚠️ 注意事项：
+- 支持格式：JPG, PNG, WEBP
+- 最大文件：16MB
+- 端口5001是因为Mac的AirPlay占用了5000端口
+
+🔄 如果看到旧logo：
+- 按 Cmd + Shift + R (Mac) 强制刷新
+- 或按 Ctrl + F5 (Windows) 清除缓存
+
+═══════════════════════════════════════
+
+✅ 后端服务状态：运行中 (端口5001)
+✅ 前端服务状态：运行中 (端口8000)
+

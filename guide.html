@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用指南 - AI Tool</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .guide-section {
+            padding: 4rem 0;
+            background: var(--bg-secondary);
+        }
+        .guide-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+        .guide-content h1 {
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .guide-content h2 {
+            color: var(--text-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .guide-content h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        .guide-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .guide-content ul, .guide-content ol {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .guide-content li {
+            margin-bottom: 0.5rem;
+        }
+        .step-box {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        .tip-box {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        .tip-box i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+        .back-home {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .back-home a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .back-home a:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="index.html"><span class="logo-ai">AI</span><span class="logo-text">Tool</span></a>
+                    </div>
+                    <div class="nav-right">
+                        <div class="language-selector">
+                            <button class="language-btn">
+                                <i class="fas fa-globe"></i>
+                                <span>中文</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="language-menu">
+                                <a href="#" class="language-option active" data-lang="zh-CN">
+                                    <span class="flag">🇨🇳</span> 简体中文
+                                </a>
+                                <a href="#" class="language-option" data-lang="zh-TW">
+                                    <span class="flag">🇹🇼</span> 繁體中文
+                                </a>
+                                <a href="#" class="language-option" data-lang="en">
+                                    <span class="flag">🇺🇸</span> English
+                                </a>
+                                <a href="#" class="language-option" data-lang="ja">
+                                    <span class="flag">🇯🇵</span> 日本語
+                                </a>
+                                <a href="#" class="language-option" data-lang="ko">
+                                    <span class="flag">🇰🇷</span> 한국어
+                                </a>
+                                <a href="#" class="language-option" data-lang="de">
+                                    <span class="flag">🇩🇪</span> Deutsch
+                                </a>
+                                <a href="#" class="language-option" data-lang="fr">
+                                    <span class="flag">🇫🇷</span> Français
+                                </a>
+                                <a href="#" class="language-option" data-lang="es">
+                                    <span class="flag">🇪🇸</span> Español
+                                </a>
+                                <a href="#" class="language-option" data-lang="it">
+                                    <span class="flag">🇮🇹</span> Italiano
+                                </a>
+                                <a href="#" class="language-option" data-lang="pt">
+                                    <span class="flag">🇵🇹</span> Português
+                                </a>
+                                <a href="#" class="language-option" data-lang="ru">
+                                    <span class="flag">🇷🇺</span> Русский
+                                </a>
+                                <a href="#" class="language-option" data-lang="ar">
+                                    <span class="flag">🇸🇦</span> العربية
+                                </a>
+                            </div>
+                        </div>
+                        <a href="index.html" class="btn-contact">返回首页</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="guide-section">
+        <div class="container">
+            <div class="guide-content">
+                <h1>📖 AI Tool 使用指南</h1>
+                
+                <h2>欢迎使用 AI Tool 图片处理工具！</h2>
+                <p>本指南将帮助您快速上手使用我们的AI图片处理工具，让您的照片处理变得简单高效。</p>
+
+                <h2>🚀 快速开始</h2>
+                
+                <h3>1. 选择工具</h3>
+                <div class="step-box">
+                    <p><strong>步骤：</strong></p>
+                    <ol>
+                        <li>在首页浏览所有可用的AI工具</li>
+                        <li>工具分为四大类别：
+                            <ul>
+                                <li><strong>AI 图片放大</strong> - 提升图片分辨率和清晰度</li>
+                                <li><strong>AI 增强</strong> - 修复、上色、降噪等增强功能</li>
+                                <li><strong>AI 编辑</strong> - 背景处理、抠图、擦除等编辑工具</li>
+                                <li><strong>AI 创造</strong> - 风格转换、特效生成等创意工具</li>
+                            </ul>
+                        </li>
+                        <li>点击您需要的工具卡片进入功能页面</li>
+                    </ol>
+                </div>
+
+                <h3>2. 上传图片</h3>
+                <div class="step-box">
+                    <p><strong>两种上传方式：</strong></p>
+                    <ul>
+                        <li><strong>方式一（拖拽上传）：</strong>直接将图片拖拽到上传区域</li>
+                        <li><strong>方式二（选择上传）：</strong>点击"选择图片"按钮，从文件夹中选择</li>
+                    </ul>
+                    
+                    <div class="tip-box">
+                        <p><i class="fas fa-info-circle"></i> <strong>支持的格式：</strong>JPG、JPEG、PNG、WEBP</p>
+                        <p><i class="fas fa-info-circle"></i> <strong>文件大小限制：</strong>最大 10MB</p>
+                    </div>
+                </div>
+
+                <h3>3. 等待处理</h3>
+                <div class="step-box">
+                    <p>上传成功后，AI会自动开始处理您的图片：</p>
+                    <ul>
+                        <li>您会看到原图和处理后的对比展示</li>
+                        <li>处理过程中会显示"AI正在处理中..."的提示</li>
+                        <li>一般只需要5-15秒即可完成</li>
+                    </ul>
+                </div>
+
+                <h3>4. 下载结果</h3>
+                <div class="step-box">
+                    <p>处理完成后：</p>
+                    <ul>
+                        <li>查看原图和处理后的对比效果</li>
+                        <li>点击"下载处理后的图片"按钮保存到本地</li>
+                        <li>如需重新处理，点击"重新上传"按钮</li>
+                    </ul>
+                </div>
+
+                <h2>🎯 各类工具使用场景</h2>
+
+                <h3>AI 图片放大系列</h3>
+                <ul>
+                    <li><strong>AI图片放大：</strong>适用于需要打印或高清展示的照片</li>
+                    <li><strong>AI动漫放大：</strong>专为动漫、插画设计，保留线条细节</li>
+                    <li><strong>AI图像锐化：</strong>修复模糊照片，提升清晰度</li>
+                    <li><strong>AI人脸增强：</strong>专门优化人像照片质量</li>
+                </ul>
+
+                <h3>AI 增强系列</h3>
+                <ul>
+                    <li><strong>AI老照片修复：</strong>去除老照片的划痕、斑点和噪点</li>
+                    <li><strong>AI图片上色：</strong>为黑白照片自动添加真实色彩</li>
+                    <li><strong>AI图片去噪：</strong>降低夜间或高ISO照片的噪点</li>
+                    <li><strong>AI图片压缩：</strong>减小文件大小同时保持画质</li>
+                </ul>
+
+                <h3>AI 编辑系列</h3>
+                <ul>
+                    <li><strong>AI生成背景：</strong>为商品照片生成专业背景</li>
+                    <li><strong>AI去背景：</strong>一键抠图，获得透明背景</li>
+                    <li><strong>AI换背景：</strong>快速替换照片背景场景</li>
+                    <li><strong>AI擦除笔：</strong>移除照片中不需要的人物或物体</li>
+                    <li><strong>AI抠图：</strong>精准分离主体和背景</li>
+                </ul>
+
+                <h3>AI 创造系列</h3>
+                <ul>
+                    <li><strong>AI写真：</strong>生成专业级的个人写真照片</li>
+                    <li><strong>AI卡通化：</strong>将真实照片转换为卡通风格</li>
+                    <li><strong>AI换脸：</strong>趣味换脸功能</li>
+                    <li><strong>AI表情包：</strong>制作个性化动态表情</li>
+                    <li><strong>AI像素化：</strong>创建复古像素艺术风格</li>
+                    <li><strong>AI圣诞特效：</strong>添加节日主题元素</li>
+                </ul>
+
+                <h2>💡 使用技巧</h2>
+
+                <div class="tip-box">
+                    <p><i class="fas fa-lightbulb"></i> <strong>技巧1：</strong>上传时选择清晰度较好的原图，处理效果会更佳</p>
+                </div>
+
+                <div class="tip-box">
+                    <p><i class="fas fa-lightbulb"></i> <strong>技巧2：</strong>文件大小建议在5MB以内，处理速度更快</p>
+                </div>
+
+                <div class="tip-box">
+                    <p><i class="fas fa-lightbulb"></i> <strong>技巧3：</strong>不同工具适用于不同场景，选择合适的工具效果最佳</p>
+                </div>
+
+                <div class="tip-box">
+                    <p><i class="fas fa-lightbulb"></i> <strong>技巧4：</strong>可以对同一张图片使用多个工具进行组合处理</p>
+                </div>
+
+                <h2>❓ 常见问题</h2>
+
+                <h3>Q: 支持批量处理吗？</h3>
+                <p>A: 当前版本暂不支持批量处理，需要逐个上传处理。</p>
+
+                <h3>Q: 处理过的图片会被保存吗？</h3>
+                <p>A: 为保护您的隐私，所有图片处理完成后24小时内会自动删除。</p>
+
+                <h3>Q: 可以调整处理参数吗？</h3>
+                <p>A: 目前使用智能AI自动处理，无需手动调参。后续版本将添加更多自定义选项。</p>
+
+                <h3>Q: 处理失败怎么办？</h3>
+                <p>A: 请检查图片格式和大小是否符合要求，或刷新页面重试。如问题持续，请联系我们。</p>
+
+                <h2>📧 需要帮助？</h2>
+                <p>如果您在使用过程中遇到任何问题，请随时联系我们：</p>
+                <p><strong>Email:</strong> <a href="mailto:tankeapp@gmail.com" style="color: var(--primary-color);">tankeapp@gmail.com</a></p>
+
+                <div class="back-home">
+                    <a href="index.html">
+                        <i class="fas fa-home"></i> 返回首页开始使用
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="mailto:tankeapp@gmail.com">tankeapp@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>产品</h4>
+                    <ul>
+                        <li><a href="index.html">所有工具</a></li>
+                        <li><a href="guide.html">使用指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>帮助</h4>
+                    <ul>
+                        <li><a href="guide.html">使用指南</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关注我们</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Tool. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI老照片修复 - AI Tool</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tool-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="index.html">
+                            <span class="logo-ai">AI</span><span class="logo-text">Tool</span>
+                        </a>
+                    </div>
+                    <ul class="nav-menu">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">AI 图片放大 <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="photo-upscale.html">AI图片放大 🔥</a>
+                                <a href="anime-upscale.html">AI动漫放大神器</a>
+                                <a href="photo-sharpen.html">AI图像锐化</a>
+                                <a href="face-enhance.html">AI人脸增强</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">AI 增强 <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="photo-restore.html">AI老照片修复 ⚡</a>
+                                <a href="colorize.html">AI图片上色</a>
+                                <a href="denoise.html">AI图片去噪</a>
+                                <a href="compress.html">AI图片无损压缩</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">AI 编辑 <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="generate-bg.html">AI智能生成背景</a>
+                                <a href="remove-bg.html">AI一键去背景</a>
+                                <a href="change-bg.html">AI智能换背景</a>
+                                <a href="eraser.html">AI神奇擦除笔</a>
+                                <a href="cutout.html">AI智能抠图</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">AI 创造 <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="ai-portrait.html">AI写真 ⚡</a>
+                                <a href="cartoonize.html">AI照片卡通化 🎃</a>
+                                <a href="face-swap.html">AI智能换脸 <span class="badge-new">NEW</span></a>
+                                <a href="emoji.html">AI动图表情包</a>
+                                <a href="pixelate.html">AI像素化图像</a>
+                                <a href="christmas.html">AI圣诞照片生成器</a>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                    <div class="nav-right">
+                        <div class="language-selector">
+                            <button class="language-btn">
+                                <i class="fas fa-globe"></i>
+                                <span>中文</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="language-menu">
+                                <a href="#" class="language-option active" data-lang="zh-CN">
+                                    <span class="flag">🇨🇳</span> 简体中文
+                                </a>
+                                <a href="#" class="language-option" data-lang="zh-TW">
+                                    <span class="flag">🇹🇼</span> 繁體中文
+                                </a>
+                                <a href="#" class="language-option" data-lang="en">
+                                    <span class="flag">🇺🇸</span> English
+                                </a>
+                                <a href="#" class="language-option" data-lang="ja">
+                                    <span class="flag">🇯🇵</span> 日本語
+                                </a>
+                                <a href="#" class="language-option" data-lang="ko">
+                                    <span class="flag">🇰🇷</span> 한국어
+                                </a>
+                                <a href="#" class="language-option" data-lang="de">
+                                    <span class="flag">🇩🇪</span> Deutsch
+                                </a>
+                                <a href="#" class="language-option" data-lang="fr">
+                                    <span class="flag">🇫🇷</span> Français
+                                </a>
+                                <a href="#" class="language-option" data-lang="es">
+                                    <span class="flag">🇪🇸</span> Español
+                                </a>
+                                <a href="#" class="language-option" data-lang="it">
+                                    <span class="flag">🇮🇹</span> Italiano
+                                </a>
+                                <a href="#" class="language-option" data-lang="pt">
+                                    <span class="flag">🇵🇹</span> Português
+                                </a>
+                                <a href="#" class="language-option" data-lang="ru">
+                                    <span class="flag">🇷🇺</span> Русский
+                                </a>
+                                <a href="#" class="language-option" data-lang="ar">
+                                    <span class="flag">🇸🇦</span> العربية
+                                </a>
+                            </div>
+                        </div>
+                        <a href="mailto:tankeapp@gmail.com" class="btn-contact">联系我们</a>
+                    </div>
+                    <button class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 工具页面主体 -->
+    <main class="tool-page">
+        <!-- Hero区域 -->
+        <section class="tool-hero">
+            <div class="container">
+                <div class="tool-hero-content">
+                    <h1 class="tool-title">AI老照片修复 ⚡</h1>
+                    <p class="tool-description">使用先进的AI技术，自动修复老旧照片中的划痕、噪点和褪色，让珍贵回忆重焕新生</p>
+                    <div class="tool-features">
+                        <div class="feature-tag">
+                            <i class="fas fa-check-circle"></i> 自动去除划痕
+                        </div>
+                        <div class="feature-tag">
+                            <i class="fas fa-check-circle"></i> 降噪处理
+                        </div>
+                        <div class="feature-tag">
+                            <i class="fas fa-check-circle"></i> 锐化增强
+                        </div>
+                        <div class="feature-tag">
+                            <i class="fas fa-check-circle"></i> 色彩恢复
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 上传区域 -->
+        <section class="upload-section">
+            <div class="container">
+                <div class="upload-container">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3>拖放图片到这里或点击上传</h3>
+                        <p class="upload-hint">支持 JPG、PNG、WEBP 格式，最大 10MB</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <button class="btn-upload" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-folder-open"></i> 选择图片
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 处理区域 -->
+        <section class="process-section" id="processSection" style="display: none;">
+            <div class="container">
+                <div class="process-container">
+                    <div class="image-compare">
+                        <div class="image-box">
+                            <h3>原图</h3>
+                            <div class="image-wrapper">
+                                <img id="originalImage" src="" alt="原图">
+                            </div>
+                        </div>
+                        <div class="arrow-icon">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="image-box">
+                            <h3>修复后</h3>
+                            <div class="image-wrapper">
+                                <img id="processedImage" src="" alt="修复后">
+                                <div class="processing-overlay" id="processingOverlay">
+                                    <div class="spinner"></div>
+                                    <p>AI正在处理中...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="btn-secondary" onclick="resetUpload()">
+                            <i class="fas fa-redo"></i> 重新上传
+                        </button>
+                        <button class="btn-primary" id="downloadBtn" style="display: none;">
+                            <i class="fas fa-download"></i> 下载修复后的照片
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 示例展示区域 -->
+        <section class="examples-section">
+            <div class="container">
+                <h2 class="section-title">效果展示</h2>
+                <p class="section-subtitle">查看AI修复前后的对比效果</p>
+                
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <div class="example-images">
+                            <div class="example-image">
+                                <span class="example-label">修复前</span>
+                                <div class="placeholder-image before">
+                                    <i class="fas fa-image"></i>
+                                    <p>老旧照片</p>
+                                </div>
+                            </div>
+                            <div class="example-image">
+                                <span class="example-label">修复后</span>
+                                <div class="placeholder-image after">
+                                    <i class="fas fa-image"></i>
+                                    <p>清晰照片</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="example-desc">去除划痕和污渍，恢复照片清晰度</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-images">
+                            <div class="example-image">
+                                <span class="example-label">修复前</span>
+                                <div class="placeholder-image before">
+                                    <i class="fas fa-image"></i>
+                                    <p>模糊照片</p>
+                                </div>
+                            </div>
+                            <div class="example-image">
+                                <span class="example-label">修复后</span>
+                                <div class="placeholder-image after">
+                                    <i class="fas fa-image"></i>
+                                    <p>锐化照片</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="example-desc">智能降噪和锐化，提升照片质量</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-images">
+                            <div class="example-image">
+                                <span class="example-label">修复前</span>
+                                <div class="placeholder-image before">
+                                    <i class="fas fa-image"></i>
+                                    <p>褪色照片</p>
+                                </div>
+                            </div>
+                            <div class="example-image">
+                                <span class="example-label">修复后</span>
+                                <div class="placeholder-image after">
+                                    <i class="fas fa-image"></i>
+                                    <p>鲜艳照片</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="example-desc">色彩恢复，让照片重现往日光彩</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特性说明区域 -->
+        <section class="features-detail-section">
+            <div class="container">
+                <h2 class="section-title">为什么选择我们的AI老照片修复</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI深度学习</h3>
+                        <p>采用最新的深度学习算法，智能识别和修复照片缺陷</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>快速处理</h3>
+                        <p>强大的云端处理能力，几秒钟即可完成照片修复</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>自动优化</h3>
+                        <p>一键修复，无需专业知识，自动识别并处理各种问题</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>隐私保护</h3>
+                        <p>所有照片加密传输，处理完成后自动删除，保护您的隐私</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ区域 -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">常见问题</h2>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>支持哪些图片格式？</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>我们支持 JPG、JPEG、PNG 和 WEBP 格式的图片文件。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>处理一张照片需要多长时间？</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>通常只需要5-15秒，具体时间取决于图片大小和服务器负载。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>我的照片安全吗？</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>是的，所有照片都通过SSL加密传输，处理完成后24小时内自动删除。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>有图片大小限制吗？</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>单张图片最大支持10MB，推荐上传5MB以下的图片以获得最佳处理速度。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="mailto:tankeapp@gmail.com">tankeapp@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>产品</h4>
+                    <ul>
+                        <li><a href="#">AI 图片放大</a></li>
+                        <li><a href="#">AI 增强</a></li>
+                        <li><a href="#">AI 编辑</a></li>
+                        <li><a href="#">AI 创造</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>帮助</h4>
+                    <ul>
+                        <li><a href="#">使用指南</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关注我们</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Tool. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/tool.js"></script>
+</body>
+</html>
