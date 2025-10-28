@@ -1,4 +1,4 @@
-# robots.txt for Nero AI
+# robots.txt for AITools
 # Allow all bots to crawl the site
 
 User-agent: *

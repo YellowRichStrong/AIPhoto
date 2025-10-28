@@ -591,7 +591,7 @@ const translations = {
 };
 
 // 当前语言
-let currentLang = 'zh-CN';
+let currentLang = 'en';
 
 // 切换语言
 function changeLanguage(lang) {

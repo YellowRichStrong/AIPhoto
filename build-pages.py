@@ -4,140 +4,140 @@
 tools_config = [
     {
         'filename': 'anime-upscale.html',
-        'title': 'AI动漫放大神器',
-        'description': '专为动漫、插画设计的AI放大技术，完美保留线条和色彩',
-        'features': ['动漫专用算法', '线条保护', '色彩还原', '细节增强'],
+        'title': 'AI Anime Upscaler',
+        'description': 'AI upscaling technology designed for anime and illustrations, perfectly preserving lines and colors',
+        'features': ['Anime-specific algorithm', 'Line protection', 'Color restoration', 'Detail enhancement'],
         'icon': 'fa-dragon',
-        'resultLabel': '放大后'
+        'resultLabel': 'After Upscaling'
     },
     {
         'filename': 'photo-sharpen.html',
-        'title': 'AI图像锐化',
-        'description': 'AI智能锐化模糊图片，提升清晰度和细节表现',
-        'features': ['智能锐化', '边缘增强', '噪点抑制', '自然效果'],
+        'title': 'AI Photo Sharpening',
+        'description': 'AI intelligently sharpens blurry images, enhancing clarity and detail',
+        'features': ['Smart sharpening', 'Edge enhancement', 'Noise suppression', 'Natural effect'],
         'icon': 'fa-adjust',
-        'resultLabel': '锐化后'
+        'resultLabel': 'After Sharpening'
     },
     {
         'filename': 'face-enhance.html',
-        'title': 'AI人脸增强',
-        'description': '专业的人像优化技术，提升人脸照片质量和细节',
-        'features': ['人脸识别', '肤质优化', '细节增强', '自然美颜'],
+        'title': 'AI Face Enhancement',
+        'description': 'Professional portrait optimization technology to enhance face photo quality and details',
+        'features': ['Face recognition', 'Skin texture optimization', 'Detail enhancement', 'Natural beautification'],
         'icon': 'fa-smile',
-        'resultLabel': '增强后'
+        'resultLabel': 'After Enhancement'
     },
     {
         'filename': 'colorize.html',
-        'title': 'AI图片上色',
-        'description': '为黑白照片智能上色，让历史照片重现色彩',
-        'features': ['智能上色', '色彩自然', '场景识别', '多种风格'],
+        'title': 'AI Photo Colorization',
+        'description': 'Intelligently colorize black and white photos to bring historical photos back to life',
+        'features': ['Smart colorization', 'Natural colors', 'Scene recognition', 'Multiple styles'],
         'icon': 'fa-palette',
-        'resultLabel': '上色后'
+        'resultLabel': 'After Colorization'
     },
     {
         'filename': 'denoise.html',
-        'title': 'AI图片去噪',
-        'description': '智能去除图片噪点，提升画质清晰度',
-        'features': ['智能降噪', '细节保护', '多级降噪', '快速处理'],
+        'title': 'AI Image Denoising',
+        'description': 'Intelligently remove image noise to enhance image quality and clarity',
+        'features': ['Smart denoising', 'Detail preservation', 'Multi-level denoising', 'Fast processing'],
         'icon': 'fa-broom',
-        'resultLabel': '去噪后'
+        'resultLabel': 'After Denoising'
     },
     {
         'filename': 'compress.html',
-        'title': 'AI图片无损压缩',
-        'description': '智能压缩图片大小，保持原始画质',
-        'features': ['智能压缩', '无损画质', '批量处理', '多种格式'],
+        'title': 'AI Lossless Image Compression',
+        'description': 'Intelligently compress image size while maintaining original quality',
+        'features': ['Smart compression', 'Lossless quality', 'Batch processing', 'Multiple formats'],
         'icon': 'fa-compress',
-        'resultLabel': '压缩后'
+        'resultLabel': 'After Compression'
     },
     {
         'filename': 'generate-bg.html',
-        'title': 'AI智能生成背景',
-        'description': 'AI自动生成专业背景，让照片更加出彩',
-        'features': ['智能生成', '多种场景', '自然融合', '风格可选'],
+        'title': 'AI Background Generation',
+        'description': 'AI automatically generates professional backgrounds to make photos more outstanding',
+        'features': ['Smart generation', 'Multiple scenes', 'Natural blending', 'Style options'],
         'icon': 'fa-image',
-        'resultLabel': '生成后'
+        'resultLabel': 'After Generation'
     },
     {
         'filename': 'remove-bg.html',
-        'title': 'AI一键去背景',
-        'description': '自动识别主体，精准抠图去除背景',
-        'features': ['一键抠图', '精准识别', '边缘优化', '透明背景'],
+        'title': 'AI Background Removal',
+        'description': 'Automatically identify subjects and accurately remove backgrounds',
+        'features': ['One-click cutout', 'Accurate recognition', 'Edge optimization', 'Transparent background'],
         'icon': 'fa-cut',
-        'resultLabel': '去背景后'
+        'resultLabel': 'After Background Removal'
     },
     {
         'filename': 'change-bg.html',
-        'title': 'AI智能换背景',
-        'description': '智能替换图片背景，快速实现场景切换',
-        'features': ['智能换背景', '自然融合', '多种模板', '自定义背景'],
+        'title': 'AI Background Changer',
+        'description': 'Intelligently replace image backgrounds to quickly switch scenes',
+        'features': ['Smart background change', 'Natural blending', 'Multiple templates', 'Custom backgrounds'],
         'icon': 'fa-images',
-        'resultLabel': '换背景后'
+        'resultLabel': 'After Background Change'
     },
     {
         'filename': 'eraser.html',
-        'title': 'AI神奇擦除笔',
-        'description': '智能移除照片中的不需要元素，自然填补',
-        'features': ['智能擦除', '自然填补', '多次擦除', '精准控制'],
+        'title': 'AI Magic Eraser',
+        'description': 'Intelligently remove unwanted elements from photos and naturally fill in gaps',
+        'features': ['Smart erasing', 'Natural filling', 'Multiple erasures', 'Precise control'],
         'icon': 'fa-eraser',
-        'resultLabel': '擦除后'
+        'resultLabel': 'After Erasing'
     },
     {
         'filename': 'cutout.html',
-        'title': 'AI智能抠图',
-        'description': '精准抠图，细节完美，支持复杂场景',
-        'features': ['精准抠图', '细节完美', '复杂场景', '批量处理'],
+        'title': 'AI Smart Cutout',
+        'description': 'Precise cutout with perfect details, supporting complex scenes',
+        'features': ['Precise cutout', 'Perfect details', 'Complex scenes', 'Batch processing'],
         'icon': 'fa-crop',
-        'resultLabel': '抠图后'
+        'resultLabel': 'After Cutout'
     },
     {
         'filename': 'ai-portrait.html',
-        'title': 'AI写真 ⚡',
-        'description': 'AI生成专业写真照片，多种风格可选',
-        'features': ['专业写真', '多种风格', '高清输出', '快速生成'],
+        'title': 'AI Portrait ⚡',
+        'description': 'AI generates professional portrait photos with multiple style options',
+        'features': ['Professional portrait', 'Multiple styles', 'HD output', 'Fast generation'],
         'icon': 'fa-user-circle',
-        'resultLabel': '生成后'
+        'resultLabel': 'After Generation'
     },
     {
         'filename': 'cartoonize.html',
-        'title': 'AI照片卡通化 🎃',
-        'description': '将真实照片转换为卡通风格，多种艺术效果',
-        'features': ['卡通化', '多种风格', '艺术效果', '细节保留'],
+        'title': 'AI Photo Cartoonization 🎃',
+        'description': 'Convert real photos to cartoon style with multiple artistic effects',
+        'features': ['Cartoonization', 'Multiple styles', 'Artistic effects', 'Detail preservation'],
         'icon': 'fa-paintbrush',
-        'resultLabel': '卡通化后'
+        'resultLabel': 'After Cartoonization'
     },
     {
         'filename': 'face-swap.html',
-        'title': 'AI智能换脸',
-        'description': '智能人脸替换技术，自然逼真的换脸效果',
-        'features': ['智能换脸', '自然融合', '表情保持', '高清输出'],
+        'title': 'AI Face Swap',
+        'description': 'Intelligent face replacement technology for natural and realistic face swapping effects',
+        'features': ['Smart face swap', 'Natural blending', 'Expression preservation', 'HD output'],
         'icon': 'fa-theater-masks',
-        'resultLabel': '换脸后',
+        'resultLabel': 'After Face Swap',
         'badge': 'NEW'
     },
     {
         'filename': 'emoji.html',
-        'title': 'AI动图表情包',
-        'description': '制作个性化动态表情包，趣味十足',
-        'features': ['动态表情', '个性定制', '多种模板', '一键生成'],
+        'title': 'AI GIF Stickers',
+        'description': 'Create personalized animated stickers, full of fun',
+        'features': ['Animated stickers', 'Personal customization', 'Multiple templates', 'One-click generation'],
         'icon': 'fa-grin-squint',
-        'resultLabel': '生成后'
+        'resultLabel': 'After Generation'
     },
     {
         'filename': 'pixelate.html',
-        'title': 'AI像素化图像',
-        'description': '创建复古像素艺术风格图片',
-        'features': ['像素风格', '多种尺寸', '色彩调节', '艺术效果'],
+        'title': 'AI Pixelate Image',
+        'description': 'Create retro pixel art style images',
+        'features': ['Pixel style', 'Multiple sizes', 'Color adjustment', 'Artistic effects'],
         'icon': 'fa-th',
-        'resultLabel': '像素化后'
+        'resultLabel': 'After Pixelation'
     },
     {
         'filename': 'christmas.html',
-        'title': 'AI圣诞照片生成器',
-        'description': '为照片添加圣诞主题元素和氛围',
-        'features': ['圣诞主题', '节日氛围', '多种装饰', '自然融合'],
+        'title': 'AI Christmas Photo Generator',
+        'description': 'Add Christmas themed elements and atmosphere to photos',
+        'features': ['Christmas theme', 'Holiday atmosphere', 'Multiple decorations', 'Natural blending'],
         'icon': 'fa-tree',
-        'resultLabel': '圣诞化后'
+        'resultLabel': 'After Christmas Effect'
     }
 ]
 
@@ -149,11 +149,11 @@ def generate_tool_page(config):
     ])
     
     return f'''<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{config['title']} - 免费在线AI图片处理工具 | Nero AI</title>
+    <title>{config['title']} - Free Online AI Image Processing Tool | AITools</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6486368477427533"
      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -166,96 +166,51 @@ def generate_tool_page(config):
             <div class="container">
                 <div class="nav-wrapper">
                     <div class="logo">
-                        <a href="index.html"><span class="logo-text">Nero AI</span></a>
+                        <a href="index.html"><span class="logo-text">AITools</span></a>
                     </div>
                     <ul class="nav-menu">
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">AI 图片放大 <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link">AI Image Upscaling <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-menu">
-                                <a href="photo-upscale.html">AI图片放大 🔥</a>
-                                <a href="anime-upscale.html">AI动漫放大神器</a>
-                                <a href="photo-sharpen.html">AI图像锐化</a>
-                                <a href="face-enhance.html">AI人脸增强</a>
+                                <a href="photo-upscale.html">AI Photo Upscaling 🔥</a>
+                                <a href="anime-upscale.html">AI Anime Upscaler</a>
+                                <a href="photo-sharpen.html">AI Photo Sharpening</a>
+                                <a href="face-enhance.html">AI Face Enhancement</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">AI 增强 <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link">AI Enhancement <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-menu">
-                                <a href="photo-restore.html">AI老照片修复 ⚡</a>
-                                <a href="colorize.html">AI图片上色</a>
-                                <a href="denoise.html">AI图片去噪</a>
-                                <a href="compress.html">AI图片无损压缩</a>
+                                <a href="photo-restore.html">AI Photo Restoration ⚡</a>
+                                <a href="colorize.html">AI Photo Colorization</a>
+                                <a href="denoise.html">AI Image Denoising</a>
+                                <a href="compress.html">AI Lossless Image Compression</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">AI 编辑 <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link">AI Editing <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-menu">
-                                <a href="generate-bg.html">AI智能生成背景</a>
-                                <a href="remove-bg.html">AI一键去背景</a>
-                                <a href="change-bg.html">AI智能换背景</a>
-                                <a href="eraser.html">AI神奇擦除笔</a>
-                                <a href="cutout.html">AI智能抠图</a>
+                                <a href="generate-bg.html">AI Background Generation</a>
+                                <a href="remove-bg.html">AI Background Removal</a>
+                                <a href="change-bg.html">AI Background Changer</a>
+                                <a href="eraser.html">AI Magic Eraser</a>
+                                <a href="cutout.html">AI Smart Cutout</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link">AI 创造 <i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="nav-link">AI Creation <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-menu">
-                                <a href="ai-portrait.html">AI写真 ⚡</a>
-                                <a href="cartoonize.html">AI照片卡通化 🎃</a>
-                                <a href="face-swap.html">AI智能换脸 <span class="badge-new">NEW</span></a>
-                                <a href="emoji.html">AI动图表情包</a>
-                                <a href="pixelate.html">AI像素化图像</a>
-                                <a href="christmas.html">AI圣诞照片生成器</a>
+                                <a href="ai-portrait.html">AI Portrait ⚡</a>
+                                <a href="cartoonize.html">AI Photo Cartoonization 🎃</a>
+                                <a href="face-swap.html">AI Face Swap <span class="badge-new">NEW</span></a>
+                                <a href="emoji.html">AI GIF Stickers</a>
+                                <a href="pixelate.html">AI Pixelate Image</a>
+                                <a href="christmas.html">AI Christmas Photo Generator</a>
                             </div>
                         </li>
                     </ul>
                     <div class="nav-right">
-                        <div class="language-selector">
-                            <button class="language-btn">
-                                <i class="fas fa-globe"></i>
-                                <span>中文</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
-                            <div class="language-menu">
-                                <a href="#" class="language-option active" data-lang="zh-CN">
-                                    <span class="flag">🇨🇳</span> 简体中文
-                                </a>
-                                <a href="#" class="language-option" data-lang="zh-TW">
-                                    <span class="flag">🇹🇼</span> 繁體中文
-                                </a>
-                                <a href="#" class="language-option" data-lang="en">
-                                    <span class="flag">🇺🇸</span> English
-                                </a>
-                                <a href="#" class="language-option" data-lang="ja">
-                                    <span class="flag">🇯🇵</span> 日本語
-                                </a>
-                                <a href="#" class="language-option" data-lang="ko">
-                                    <span class="flag">🇰🇷</span> 한국어
-                                </a>
-                                <a href="#" class="language-option" data-lang="de">
-                                    <span class="flag">🇩🇪</span> Deutsch
-                                </a>
-                                <a href="#" class="language-option" data-lang="fr">
-                                    <span class="flag">🇫🇷</span> Français
-                                </a>
-                                <a href="#" class="language-option" data-lang="es">
-                                    <span class="flag">🇪🇸</span> Español
-                                </a>
-                                <a href="#" class="language-option" data-lang="it">
-                                    <span class="flag">🇮🇹</span> Italiano
-                                </a>
-                                <a href="#" class="language-option" data-lang="pt">
-                                    <span class="flag">🇵🇹</span> Português
-                                </a>
-                                <a href="#" class="language-option" data-lang="ru">
-                                    <span class="flag">🇷🇺</span> Русский
-                                </a>
-                                <a href="#" class="language-option" data-lang="ar">
-                                    <span class="flag">🇸🇦</span> العربية
-                                </a>
-                            </div>
-                        </div>
-                        <a href="mailto:tankeapp@gmail.com" class="btn-contact">联系我们</a>
+                        <a href="mailto:tankeapp@gmail.com" class="btn-contact">Contact Us</a>
                     </div>
                     <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
                 </div>
@@ -281,11 +236,11 @@ def generate_tool_page(config):
                 <div class="upload-container">
                     <div class="upload-area" id="uploadArea">
                         <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                        <h3>拖放图片到这里或点击上传</h3>
-                        <p class="upload-hint">支持 JPG、PNG、WEBP 格式，最大 10MB</p>
+                        <h3>Drag & Drop Images Here or Click to Upload</h3>
+                        <p class="upload-hint">Supports JPG, PNG, WEBP formats, up to 10MB</p>
                         <input type="file" id="fileInput" accept="image/*" hidden>
                         <button class="btn-upload" onclick="document.getElementById('fileInput').click()">
-                            <i class="fas fa-folder-open"></i> 选择图片
+                            <i class="fas fa-folder-open"></i> Select Image
                         </button>
                     </div>
                 </div>
@@ -297,9 +252,9 @@ def generate_tool_page(config):
                 <div class="process-container">
                     <div class="image-compare">
                         <div class="image-box">
-                            <h3>原图</h3>
+                            <h3>Original</h3>
                             <div class="image-wrapper">
-                                <img id="originalImage" src="" alt="原图">
+                                <img id="originalImage" src="" alt="Original">
                             </div>
                         </div>
                         <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
@@ -309,17 +264,17 @@ def generate_tool_page(config):
                                 <img id="processedImage" src="" alt="{config['resultLabel']}">
                                 <div class="processing-overlay" id="processingOverlay">
                                     <div class="spinner"></div>
-                                    <p>AI正在处理中...</p>
+                                    <p>AI is processing...</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="action-buttons">
                         <button class="btn-secondary" onclick="resetUpload()">
-                            <i class="fas fa-redo"></i> 重新上传
+                            <i class="fas fa-redo"></i> Re-upload
                         </button>
                         <button class="btn-primary" id="downloadBtn" style="display: none;">
-                            <i class="fas fa-download"></i> 下载处理后的图片
+                            <i class="fas fa-download"></i> Download Processed Image
                         </button>
                     </div>
                 </div>
@@ -328,27 +283,27 @@ def generate_tool_page(config):
 
         <section class="features-detail-section">
             <div class="container">
-                <h2 class="section-title">{config['title']}的强大功能</h2>
+                <h2 class="section-title">Powerful Features of {config['title']}</h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas {config['icon']}"></i></div>
-                        <h3>AI技术</h3>
-                        <p>采用最新的AI深度学习算法</p>
+                        <h3>AI Technology</h3>
+                        <p>Using the latest AI deep learning algorithms</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                        <h3>快速处理</h3>
-                        <p>云端高性能处理，秒级完成</p>
+                        <h3>Fast Processing</h3>
+                        <p>High-performance cloud processing completed in seconds</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h3>隐私保护</h3>
-                        <p>加密传输，自动删除，保护隐私</p>
+                        <h3>Privacy Protection</h3>
+                        <p>Encrypted transmission, automatic deletion, privacy protection</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-star"></i></div>
-                        <h3>高质量输出</h3>
-                        <p>专业级的处理效果</p>
+                        <h3>High-quality Output</h3>
+                        <p>Professional-level processing effects</p>
                     </div>
                 </div>
             </div>
@@ -359,36 +314,36 @@ def generate_tool_page(config):
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>关于我们</h4>
+                    <h4>About Us</h4>
                     <ul>
-                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">Company Profile</a></li>
                         <li><a href="mailto:tankeapp@gmail.com">tankeapp@gmail.com</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>产品</h4>
+                    <h4>Products</h4>
                     <ul>
-                        <li><a href="index.html">所有工具</a></li>
+                        <li><a href="index.html">All Tools</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>帮助</h4>
+                    <h4>Help</h4>
                     <ul>
-                        <li><a href="#">使用指南</a></li>
-                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>关注我们</h4>
+                    <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:tankeapp@gmail.com" onclick="alert('To contact us, please send an email to: tankeapp@gmail.com'); return false;"><i class="fab fa-facebook"></i></a>
+                        <a href="mailto:tankeapp@gmail.com" onclick="alert('To contact us, please send an email to: tankeapp@gmail.com'); return false;"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:tankeapp@gmail.com" onclick="alert('To contact us, please send an email to: tankeapp@gmail.com'); return false;"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Nero AI. All rights reserved.</p>
+                <p>&copy; 2024 AITools. All rights reserved.</p>
             </div>
         </div>
     </footer>
