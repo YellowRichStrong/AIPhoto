@@ -236,6 +236,11 @@ function generateToolPage(config) {
     ${jsonLd}
     </script>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/tool-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
