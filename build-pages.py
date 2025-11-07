@@ -163,8 +163,7 @@ def generate_tool_page(config):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{config['title']} - Free Online AI Image Processing Tool | AITools</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6486368477427533"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6486368477427533" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/tool-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -366,7 +365,7 @@ if __name__ == '__main__':
     import os
     
     output_dir = os.path.dirname(os.path.abspath(__file__))
-    print('开始生成工具页面...\\n')
+    print('Generating tool pages...\n')
     
     for config in tools_config:
         html = generate_tool_page(config)
@@ -375,6 +374,6 @@ if __name__ == '__main__':
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(html)
         
-        print(f"✓ 已生成: {config['filename']} - {config['title']}")
+        print(f"✓ Generated: {config['filename']} - {config['title']}")
     
-    print(f'\\n✅ 成功生成 {len(tools_config)} 个工具页面！')
+    print(f'\n✅ Successfully generated {len(tools_config)} tool pages!')
