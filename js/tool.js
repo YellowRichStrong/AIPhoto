@@ -3,8 +3,9 @@
 let originalImageData = null;
 let currentFile = null;
 
-// 配置后端API地址
-const API_BASE_URL = 'http://localhost:5001/api';
+// 前端模拟处理（不调用后端API）
+const SIMULATE_PROCESSING = true;
+const PROCESSING_DELAY = 3000; // 3秒模拟处理时间
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeUpload();
@@ -52,14 +53,14 @@ function handleFile(file) {
     // 验证文件类型
     const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
     if (!validTypes.includes(file.type)) {
-        alert('请上传 JPG、PNG 或 WEBP 格式的图片');
+        alert('Please upload JPG, PNG, or WEBP format images');
         return;
     }
     
     // 验证文件大小 (10MB)
     const maxSize = 10 * 1024 * 1024;
     if (file.size > maxSize) {
-        alert('图片大小不能超过 10MB');
+        alert('Image size cannot exceed 10MB');
         return;
     }
     
@@ -72,8 +73,13 @@ function handleFile(file) {
         originalImageData = e.target.result;
         displayImages(originalImageData);
         
-        // 调用后端API处理图片
-        processWithAPI(currentFile);
+        // 使用前端模拟处理
+        if (SIMULATE_PROCESSING) {
+            simulateProcessing(originalImageData);
+        } else {
+            // 调用后端API处理图片（需要后端服务运行）
+            processWithAPI(currentFile);
+        }
     };
     reader.readAsDataURL(file);
 }
@@ -99,6 +105,27 @@ function displayImages(imageData) {
     downloadBtn.style.display = 'none';
     
     // 注意：实际处理由processWithAPI函数调用
+}
+
+// 前端模拟处理（用于演示）
+function simulateProcessing(imageData) {
+    const processedImage = document.getElementById('processedImage');
+    const processingOverlay = document.getElementById('processingOverlay');
+    const downloadBtn = document.getElementById('downloadBtn');
+    
+    // 模拟处理延迟
+    setTimeout(() => {
+        // 处理完成，显示结果（这里使用原图作为结果图）
+        processedImage.src = imageData;
+        processingOverlay.style.display = 'none';
+        downloadBtn.style.display = 'inline-flex';
+        
+        // 添加下载功能
+        downloadBtn.onclick = function() {
+            const filename = currentFile.name.split('.')[0] + '_processed.png';
+            downloadImage(imageData, filename);
+        };
+    }, PROCESSING_DELAY);
 }
 
 // 调用后端API处理图片
@@ -142,8 +169,8 @@ async function processWithAPI(file) {
         };
         
     } catch (error) {
-        console.error('处理失败:', error);
-        alert('图片处理失败: ' + error.message);
+        console.error('Processing failed:', error);
+        alert('Image processing failed: ' + error.message + '\n\nNote: This is a demo site. Backend service is not running.');
         processingOverlay.style.display = 'none';
     }
 }
