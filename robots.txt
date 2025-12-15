@@ -1,31 +1,38 @@
-# robots.txt for AITools
-# Allow all bots to crawl the site
+# AI Model Hub - Robots.txt
+# Updated: 2025-01-14
 
 User-agent: *
 Allow: /
+Allow: /index.html
+Allow: /js/
+Allow: /css/
+Allow: /images/
 
 # Sitemap location
 Sitemap: https://aitoday.me.uk/sitemap.xml
 
-# Disallow sensitive directories
-Disallow: /backend/
-Disallow: /uploads/
-Disallow: /results/
-Disallow: /.git/
-Disallow: /node_modules/
+# Specific crawlers optimization
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
 
-# Allow common resource files
-Allow: /css/
-Allow: /js/
+User-agent: Googlebot-Image
 Allow: /images/
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.jpg$
-Allow: /*.png$
-Allow: /*.gif$
-Allow: /*.svg$
-Allow: /*.webp$
 
-# Crawl-delay for bots (optional)
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1
 
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

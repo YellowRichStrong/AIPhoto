@@ -1,0 +1,22 @@
+{
+  "name": "aitoday-sync",
+  "version": "1.0.0",
+  "description": "AI模型排行榜数据自动同步服务",
+  "main": "scripts/scheduler.js",
+  "scripts": {
+    "start": "node scripts/scheduler.js",
+    "sync-now": "node scripts/scheduler.js --now",
+    "test-sync": "node scripts/sync-leaderboard.js",
+    "install-service": "pm2 start scripts/scheduler.js --name aitoday-sync --cron-restart='0 23 * * *'",
+    "stop-service": "pm2 stop aitoday-sync",
+    "restart-service": "pm2 restart aitoday-sync",
+    "logs": "pm2 logs aitoday-sync"
+  },
+  "dependencies": {
+    "node-cron": "^3.0.3",
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}
