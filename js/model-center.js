@@ -894,8 +894,19 @@ function loadCompareTable() {
     const model2 = document.getElementById('compareModel2').value;
     const model3 = document.getElementById('compareModel3').value;
     
-    const models = [model1, model2, model3];
+    // Check if at least one model is selected
+    if (!model1 && !model2 && !model3) {
+        return; // Don't render if no models selected
+    }
+    
+    const models = [model1, model2, model3].filter(m => m); // Filter out empty values
     const container = document.getElementById('compareTableContainer');
+    
+    // If no valid models, clear container and return
+    if (models.length === 0) {
+        container.innerHTML = '';
+        return;
+    }
     
     const categories = [
         { key: 'name', label: 'Model Name' },
@@ -915,7 +926,9 @@ function loadCompareTable() {
     html += '<div class="compare-cell"><strong>Comparison</strong></div>';
     models.forEach(modelKey => {
         const model = modelsData.comparison[modelKey];
-        html += `<div class="compare-cell"><strong>${model.name}</strong></div>`;
+        if (model) {
+            html += `<div class="compare-cell"><strong>${model.name}</strong></div>`;
+        }
     });
     html += '</div>';
     
@@ -924,10 +937,9 @@ function loadCompareTable() {
             html += '<div class="compare-row">';
             html += `<div class="compare-cell compare-category">${cat.label}</div>`;
             
-            const values = models.map(modelKey => modelsData.comparison[modelKey][cat.key]);
-            
-            models.forEach((modelKey, i) => {
-                const value = modelsData.comparison[modelKey][cat.key];
+            models.forEach((modelKey) => {
+                const model = modelsData.comparison[modelKey];
+                const value = model ? model[cat.key] : 'N/A';
                 html += `<div class="compare-cell">${value}</div>`;
             });
             
@@ -961,15 +973,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     filterTabs.forEach(tab => {
         tab.addEventListener('click', function() {
+            console.log('Tab clicked!'); // Debug log
             // Remove all active classes
             filterTabs.forEach(t => t.classList.remove('active'));
             // Add current active
             this.classList.add('active');
             
-            // Load corresponding data based on tab text
-            const categoryKey = categoryMap[this.textContent.trim()];
+            // Get the button text without icon
+            // Use lastChild.textContent to get only the text node content
+            let categoryText = this.textContent.trim();
+            // Remove extra whitespaces
+            categoryText = categoryText.replace(/\s+/g, ' ');
+            
+            console.log('Category text:', categoryText); // Debug log
+            console.log('Category key:', categoryMap[categoryText]); // Debug log
+            
+            const categoryKey = categoryMap[categoryText];
             if (categoryKey) {
                 loadLeaderboard(categoryKey);
+            } else {
+                console.error('No category key found for:', categoryText);
             }
         });
     });
