@@ -1004,3 +1004,194 @@ function loadPricingTable() {
         tbody.appendChild(tr);
     });
 }
+
+// Provider to models mapping for 2-level selection
+const providerModelsMap = {
+    'OpenAI': [
+        { value: 'gpt-4o', name: 'GPT-4o' },
+        { value: 'gpt-4o-2024-11-20', name: 'GPT-4o-2024-11-20' },
+        { value: 'gpt-4o-2024-08-06', name: 'GPT-4o-2024-08-06' },
+        { value: 'gpt-4o-2024-05-13', name: 'GPT-4o-2024-05-13' },
+        { value: 'gpt-4o-mini', name: 'GPT-4o-mini' },
+        { value: 'gpt-4o-mini-2024-07-18', name: 'GPT-4o-mini-2024-07-18' },
+        { value: 'o1', name: 'o1' },
+        { value: 'o1-2024-12-17', name: 'o1-2024-12-17' },
+        { value: 'o1-preview', name: 'o1-preview' },
+        { value: 'o1-preview-2024-09-12', name: 'o1-preview-2024-09-12' },
+        { value: 'o1-mini', name: 'o1-mini' },
+        { value: 'o1-mini-2024-09-12', name: 'o1-mini-2024-09-12' },
+        { value: 'gpt-4-turbo', name: 'GPT-4 Turbo' },
+        { value: 'gpt-4-turbo-2024-04-09', name: 'GPT-4-Turbo-2024-04-09' },
+        { value: 'gpt-4-turbo-preview', name: 'GPT-4-Turbo-Preview' },
+        { value: 'gpt-4', name: 'GPT-4' },
+        { value: 'gpt-4-0613', name: 'GPT-4-0613' },
+        { value: 'gpt-3.5-turbo', name: 'GPT-3.5-Turbo' },
+        { value: 'gpt-3.5-turbo-0125', name: 'GPT-3.5-Turbo-0125' },
+        { value: 'gpt-3.5-turbo-1106', name: 'GPT-3.5-Turbo-1106' },
+        { value: 'dall-e-3', name: 'DALL-E-3' },
+        { value: 'dall-e-2', name: 'DALL-E-2' },
+        { value: 'text-embedding-3-large', name: 'Text-Embedding-3-Large' },
+        { value: 'text-embedding-3-small', name: 'Text-Embedding-3-Small' }
+    ],
+    'Anthropic': [
+        { value: 'claude-3-5-sonnet-20241022', name: 'Claude-3-5-Sonnet-20241022' },
+        { value: 'claude-3-5-sonnet-20240620', name: 'Claude-3-5-Sonnet-20240620' },
+        { value: 'claude-3-opus-20240229', name: 'Claude-3-Opus-20240229' },
+        { value: 'claude-3-sonnet-20240229', name: 'Claude-3-Sonnet-20240229' },
+        { value: 'claude-3-5-haiku-20241022', name: 'Claude-3-5-Haiku-20241022' },
+        { value: 'claude-3-haiku-20240307', name: 'Claude-3-Haiku-20240307' }
+    ],
+    'Google': [
+        { value: 'gemini-2.0-flash-exp', name: 'Gemini-2.0-Flash-Exp (Free)' },
+        { value: 'gemini-1.5-pro', name: 'Gemini-1.5-Pro' },
+        { value: 'gemini-1.5-pro-002', name: 'Gemini-1.5-Pro-002' },
+        { value: 'gemini-1.5-flash', name: 'Gemini-1.5-Flash' },
+        { value: 'gemini-1.5-flash-002', name: 'Gemini-1.5-Flash-002' },
+        { value: 'gemini-1.5-flash-8b', name: 'Gemini-1.5-Flash-8B' },
+        { value: 'gemini-1.0-pro', name: 'Gemini-1.0-Pro' }
+    ],
+    'Alibaba': [
+        { value: 'qwen-max-0919', name: 'Qwen-Max-0919' },
+        { value: 'qwen-max-latest', name: 'Qwen-Max-Latest' },
+        { value: 'qwen-plus', name: 'Qwen-Plus' },
+        { value: 'qwen-plus-latest', name: 'Qwen-Plus-Latest' },
+        { value: 'qwen-turbo', name: 'Qwen-Turbo' },
+        { value: 'qwen-turbo-latest', name: 'Qwen-Turbo-Latest' },
+        { value: 'qwen2.5-72b-instruct', name: 'Qwen2.5-72B-Instruct' },
+        { value: 'qwen2.5-32b-instruct', name: 'Qwen2.5-32B-Instruct' },
+        { value: 'qwen2.5-14b-instruct', name: 'Qwen2.5-14B-Instruct' },
+        { value: 'qwen2.5-7b-instruct', name: 'Qwen2.5-7B-Instruct' },
+        { value: 'qwen2.5-coder-32b-instruct', name: 'Qwen2.5-Coder-32B-Instruct' },
+        { value: 'qwen2.5-math-72b-instruct', name: 'Qwen2.5-Math-72B-Instruct' },
+        { value: 'qwq-32b-preview', name: 'QwQ-32B-Preview' },
+        { value: 'qwen-vl-max', name: 'Qwen-VL-Max' },
+        { value: 'qwen-vl-plus', name: 'Qwen-VL-Plus' }
+    ],
+    'DeepSeek': [
+        { value: 'deepseek-chat', name: 'DeepSeek-Chat' },
+        { value: 'deepseek-reasoner', name: 'DeepSeek-Reasoner' },
+        { value: 'deepseek-coder', name: 'DeepSeek-Coder' }
+    ],
+    'Bytedance': [
+        { value: 'doubao-1.5-thinking-pro', name: 'Doubao-1.5-thinking-pro' },
+        { value: 'doubao-1.5-pro-32k', name: 'Doubao-1.5-pro-32k' },
+        { value: 'doubao-1.5-pro-256k', name: 'Doubao-1.5-pro-256k' },
+        { value: 'doubao-1.5-lite-32k', name: 'Doubao-1.5-lite-32k' },
+        { value: 'doubao-1.5-lite-256k', name: 'Doubao-1.5-lite-256k' },
+        { value: 'doubao-pro-32k', name: 'Doubao-pro-32k' },
+        { value: 'doubao-pro-256k', name: 'Doubao-pro-256k' },
+        { value: 'doubao-lite-32k', name: 'Doubao-lite-32k' },
+        { value: 'doubao-lite-256k', name: 'Doubao-lite-256k' },
+        { value: 'doubao-character-32k', name: 'Doubao-character-32k' },
+        { value: 'doubao-character-256k', name: 'Doubao-character-256k' },
+        { value: 'doubao-vision-pro-32k', name: 'Doubao-vision-pro-32k' },
+        { value: 'doubao-vision-pro-256k', name: 'Doubao-vision-pro-256k' },
+        { value: 'doubao-vision-lite-32k', name: 'Doubao-vision-lite-32k' }
+    ],
+    'Baidu': [
+        { value: 'ernie-4.0-8k', name: 'ERNIE-4.0-8K' },
+        { value: 'ernie-4.0-turbo-8k', name: 'ERNIE-4.0-Turbo-8K' },
+        { value: 'ernie-4.0-turbo-128k', name: 'ERNIE-4.0-Turbo-128K' },
+        { value: 'ernie-3.5-8k', name: 'ERNIE-3.5-8K' },
+        { value: 'ernie-3.5-128k', name: 'ERNIE-3.5-128K' },
+        { value: 'ernie-speed-8k', name: 'ERNIE-Speed-8K' },
+        { value: 'ernie-speed-128k', name: 'ERNIE-Speed-128K' },
+        { value: 'ernie-lite-8k', name: 'ERNIE-Lite-8K' }
+    ],
+    'xAI': [
+        { value: 'grok-beta', name: 'Grok-Beta' },
+        { value: 'grok-2-1212', name: 'Grok-2-1212' },
+        { value: 'grok-2-vision-1212', name: 'Grok-2-Vision-1212' }
+    ],
+    'Tencent': [
+        { value: 'hunyuan-pro', name: 'Hunyuan-Pro' },
+        { value: 'hunyuan-standard', name: 'Hunyuan-Standard' },
+        { value: 'hunyuan-lite', name: 'Hunyuan-Lite' },
+        { value: 'hunyuan-turbo', name: 'Hunyuan-Turbo' }
+    ],
+    'Moonshot': [
+        { value: 'moonshot-v1-8k', name: 'Moonshot-v1-8k' },
+        { value: 'moonshot-v1-32k', name: 'Moonshot-v1-32k' },
+        { value: 'moonshot-v1-128k', name: 'Moonshot-v1-128k' }
+    ],
+    'MiniMax': [
+        { value: 'abab6.5s-chat', name: 'abab6.5s-Chat' },
+        { value: 'abab6.5-chat', name: 'abab6.5-Chat' },
+        { value: 'abab6.5g-chat', name: 'abab6.5g-Chat' },
+        { value: 'abab5.5s-chat', name: 'abab5.5s-Chat' },
+        { value: 'abab5.5-chat', name: 'abab5.5-Chat' }
+    ],
+    'SenseTime': [
+        { value: 'sensechat-5', name: 'SenseChat-5' },
+        { value: 'sensechat-turbo', name: 'SenseChat-Turbo' },
+        { value: 'sensechat-character', name: 'SenseChat-Character' },
+        { value: 'sensechat-vision', name: 'SenseChat-Vision' }
+    ]
+};
+
+// Update model options based on selected provider
+function updateModelOptions() {
+    const providerSelect = document.getElementById('providerSelect');
+    const modelSelect = document.getElementById('modelSelect');
+    const selectedProvider = providerSelect.value;
+    
+    // Clear current options
+    modelSelect.innerHTML = '';
+    
+    if (!selectedProvider) {
+        modelSelect.innerHTML = '<option value="">-- Select Provider First --</option>';
+        modelSelect.disabled = true;
+        return;
+    }
+    
+    // Enable model select
+    modelSelect.disabled = false;
+    
+    // Add models for selected provider
+    const models = providerModelsMap[selectedProvider] || [];
+    modelSelect.innerHTML = '<option value="">-- Select Model --</option>';
+    
+    models.forEach(model => {
+        const option = document.createElement('option');
+        option.value = model.value;
+        option.textContent = model.name;
+        modelSelect.appendChild(option);
+    });
+}
+
+// Update compare model options based on selected provider (for model comparison)
+function updateCompareModelOptions(slotNumber) {
+    const providerSelect = document.getElementById(`compareProvider${slotNumber}`);
+    const modelSelect = document.getElementById(`compareModel${slotNumber}`);
+    const selectedProvider = providerSelect.value;
+    
+    // Clear current options
+    modelSelect.innerHTML = '';
+    
+    if (!selectedProvider) {
+        modelSelect.innerHTML = '<option value="">-- Select Provider First --</option>';
+        modelSelect.disabled = true;
+        return;
+    }
+    
+    // Enable model select
+    modelSelect.disabled = false;
+    
+    // Add models for selected provider (reuse providerModelsMap from Cost Calculator)
+    const models = providerModelsMap[selectedProvider] || [];
+    modelSelect.innerHTML = '<option value="">-- Select Model --</option>';
+    
+    models.forEach(model => {
+        const option = document.createElement('option');
+        option.value = model.value;
+        option.textContent = model.name;
+        modelSelect.appendChild(option);
+    });
+    
+    // Auto-select first model for convenience
+    if (models.length > 0) {
+        modelSelect.value = models[0].value;
+        // Trigger comparison table update
+        loadCompareTable();
+    }
+}
