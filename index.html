@@ -1209,6 +1209,13 @@
         .models-search-bar {
             position: relative;
             margin-bottom: 2rem;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            flex: 1;
         }
 
         .models-search-input {
@@ -1226,13 +1233,59 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        .models-search-icon {
+        .search-clear-btn {
             position: absolute;
-            right: 1.5rem;
+            right: 1rem;
             top: 50%;
             transform: translateY(-50%);
-            color: #999;
-            font-size: 1.2rem;
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: #e0e0e0;
+            border-radius: 50%;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .search-clear-btn:hover {
+            background: #ff6b6b;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .search-clear-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .models-search-btn {
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .models-search-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .models-search-btn:active {
+            transform: translateY(0);
         }
 
         .models-filters {
@@ -1740,8 +1793,15 @@
 
             <!-- Search Bar -->
             <div class="models-search-bar">
-                <input type="text" id="modelsSearchInput" class="models-search-input" placeholder="Search models by name, provider, or capability...">
-                <i class="fas fa-search models-search-icon"></i>
+                <div class="search-input-wrapper">
+                    <input type="text" id="modelsSearchInput" class="models-search-input" placeholder="Search models by name, provider, or capability...">
+                    <button class="search-clear-btn" onclick="clearSearch()" id="searchClearBtn" style="display: none;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <button class="models-search-btn" onclick="performSearch()">
+                    <i class="fas fa-search"></i> Search
+                </button>
             </div>
 
             <!-- Filters -->

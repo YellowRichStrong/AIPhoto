@@ -706,7 +706,27 @@ function changePage(direction) {
 
 // Initialize filters
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('modelsSearchInput').addEventListener('input', filterModels);
+    // Remove auto-search on input, only search when button clicked or Enter pressed
+    const searchInput = document.getElementById('modelsSearchInput');
+    const clearBtn = document.getElementById('searchClearBtn');
+    
+    // Show/hide clear button based on input content
+    searchInput.addEventListener('input', function() {
+        if (this.value.trim().length > 0) {
+            clearBtn.style.display = 'flex';
+        } else {
+            clearBtn.style.display = 'none';
+        }
+    });
+    
+    // Support Enter key to search
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+    
+    // Auto-filter for dropdown selections
     document.getElementById('filterProvider').addEventListener('change', filterModels);
     document.getElementById('filterCategory').addEventListener('change', filterModels);
     document.getElementById('filterCapability').addEventListener('change', filterModels);
@@ -714,3 +734,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     displayModels();
 });
+
+// Perform search function (called by button click or Enter key)
+function performSearch() {
+    filterModels();
+}
+
+// Clear search input and reset results
+function clearSearch() {
+    const searchInput = document.getElementById('modelsSearchInput');
+    const clearBtn = document.getElementById('searchClearBtn');
+    
+    searchInput.value = '';
+    clearBtn.style.display = 'none';
+    
+    // Trigger search to show all results
+    filterModels();
+}
