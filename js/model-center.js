@@ -847,14 +847,78 @@ function loadLeaderboard(category = 'text-generation') {
     });
 }
 
+// Global exchange rates data
+let exchangeRates = {
+    'USD': { symbol: '$', rate: 1.0, name: 'US Dollar' },
+    'CNY': { symbol: '¥', rate: 7.25, name: 'Chinese Yuan' },
+    'EUR': { symbol: '€', rate: 0.92, name: 'Euro' },
+    'GBP': { symbol: '£', rate: 0.79, name: 'British Pound' },
+    'JPY': { symbol: '¥', rate: 149.50, name: 'Japanese Yen' },
+    'KRW': { symbol: '₩', rate: 1350.00, name: 'Korean Won' },
+    'HKD': { symbol: 'HK$', rate: 7.82, name: 'Hong Kong Dollar' },
+    'SGD': { symbol: 'S$', rate: 1.34, name: 'Singapore Dollar' },
+    'AUD': { symbol: 'A$', rate: 1.52, name: 'Australian Dollar' },
+    'CAD': { symbol: 'C$', rate: 1.36, name: 'Canadian Dollar' },
+    'CHF': { symbol: 'CHF', rate: 0.88, name: 'Swiss Franc' },
+    'INR': { symbol: '₹', rate: 83.50, name: 'Indian Rupee' },
+};
+
+// Fetch exchange rates from backend
+async function fetchExchangeRate() {
+    try {
+        const response = await fetch('http://localhost:5001/api/exchange-rate');
+        const data = await response.json();
+        
+        if (data.status === 'success' && data.data.currencies) {
+            // Update exchange rates from backend
+            Object.keys(data.data.currencies).forEach(code => {
+                const currency = data.data.currencies[code];
+                exchangeRates[code] = {
+                    symbol: currency.symbol,
+                    rate: currency.rate,
+                    name: currency.name,
+                    flag: currency.flag
+                };
+            });
+            console.log(`汇率已更新: ${Object.keys(data.data.currencies).length} 种货币 (来源: ${data.data.source})`);
+            return exchangeRates;
+        } else {
+            console.warn('汇率API返回异常，使用默认汇率');
+            return exchangeRates;
+        }
+    } catch (error) {
+        console.error('获取汇率失败，使用默认汇率:', error);
+        return exchangeRates;
+    }
+}
+
 // Calculate cost
 function calculateCost() {
     const modelKey = document.getElementById('modelSelect').value;
     const inputTokens = parseInt(document.getElementById('inputTokens').value) || 0;
     const outputTokens = parseInt(document.getElementById('outputTokens').value) || 0;
     const callCount = parseInt(document.getElementById('callCount').value) || 0;
+    const currency = document.getElementById('currencySelect').value;
     
     const model = modelsData.pricing[modelKey];
+    
+    // Get currency info from exchangeRates
+    const currencyInfo = exchangeRates[currency] || exchangeRates['USD'];
+    const currencySymbol = currencyInfo.symbol;
+    const exchangeRate = currencyInfo.rate;
+    
+    // Determine price unit text based on currency
+    let priceUnitText;
+    if (currency === 'USD') {
+        priceUnitText = '$/M tokens';
+    } else {
+        priceUnitText = `${currency}/M tokens`;
+    }
+    const multiplier = exchangeRate;
+    
+    // Update price unit labels
+    document.getElementById('priceUnit1').textContent = priceUnitText;
+    document.getElementById('priceUnit2').textContent = priceUnitText;
     
     // Display current model name and unit prices
     document.getElementById('currentModelName').textContent = model.name;
@@ -867,25 +931,27 @@ function calculateCost() {
         document.getElementById('modelOutputPrice').textContent = 'Free';
         document.getElementById('modelOutputPrice').style.color = '#27ae60';
     } else {
-        document.getElementById('modelInputPrice').textContent = `$${model.inputPrice.toFixed(4)}`;
+        const inputPriceConverted = model.inputPrice * multiplier;
+        const outputPriceConverted = model.outputPrice * multiplier;
+        document.getElementById('modelInputPrice').textContent = `${currencySymbol}${inputPriceConverted.toFixed(4)}`;
         document.getElementById('modelInputPrice').style.color = 'white';
-        document.getElementById('modelOutputPrice').textContent = `$${model.outputPrice.toFixed(4)}`;
+        document.getElementById('modelOutputPrice').textContent = `${currencySymbol}${outputPriceConverted.toFixed(4)}`;
         document.getElementById('modelOutputPrice').style.color = 'white';
     }
     
     // Calculate cost (per million tokens)
-    const inputCost = (inputTokens / 1000000) * model.inputPrice * callCount;
-    const outputCost = (outputTokens / 1000000) * model.outputPrice * callCount;
+    const inputCost = (inputTokens / 1000000) * model.inputPrice * callCount * multiplier;
+    const outputCost = (outputTokens / 1000000) * model.outputPrice * callCount * multiplier;
     const totalCost = inputCost + outputCost;
     const perCallCost = totalCost / callCount;
-    const perMillionCost = ((inputTokens * model.inputPrice) + (outputTokens * model.outputPrice)) / 1000000;
+    const perMillionCost = ((inputTokens * model.inputPrice) + (outputTokens * model.outputPrice)) / 1000000 * multiplier;
     
     // Display results
-    document.getElementById('totalCost').textContent = `$${totalCost.toFixed(4)}`;
-    document.getElementById('inputCost').textContent = `$${inputCost.toFixed(4)}`;
-    document.getElementById('outputCost').textContent = `$${outputCost.toFixed(4)}`;
-    document.getElementById('perCallCost').textContent = `$${perCallCost.toFixed(6)}`;
-    document.getElementById('perMillionCost').textContent = `$${perMillionCost.toFixed(4)}`;
+    document.getElementById('totalCost').textContent = `${currencySymbol}${totalCost.toFixed(4)}`;
+    document.getElementById('inputCost').textContent = `${currencySymbol}${inputCost.toFixed(4)}`;
+    document.getElementById('outputCost').textContent = `${currencySymbol}${outputCost.toFixed(4)}`;
+    document.getElementById('perCallCost').textContent = `${currencySymbol}${perCallCost.toFixed(6)}`;
+    document.getElementById('perMillionCost').textContent = `${currencySymbol}${perMillionCost.toFixed(4)}`;
 }
 
 // Load comparison table
@@ -955,6 +1021,12 @@ document.addEventListener('DOMContentLoaded', function() {
     loadLeaderboard('text-generation');
     loadCompareTable();
     loadPricingTable(); // Load pricing table
+    
+    // Fetch exchange rate on page load
+    fetchExchangeRate();
+    
+    // Update exchange rate every hour
+    setInterval(fetchExchangeRate, 60 * 60 * 1000);
     
     // Listen to comparison model selection changes
     ['compareModel1', 'compareModel2', 'compareModel3'].forEach(id => {

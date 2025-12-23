@@ -45,6 +45,32 @@ def health_check():
         'timestamp': datetime.now().isoformat()
     })
 
+@app.route('/api/exchange-rate', methods=['GET'])
+def exchange_rate():
+    """获取所有支持货币的实时汇率"""
+    try:
+        from routes.exchange_rate import get_all_exchange_rates
+        rate_data = get_all_exchange_rates()
+        
+        return jsonify({
+            'status': 'success',
+            'data': rate_data
+        })
+    except Exception as e:
+        logger.error(f"获取汇率错误: {str(e)}")
+        # 返回默认汇率
+        return jsonify({
+            'status': 'error',
+            'message': str(e),
+            'data': {
+                'currencies': {
+                    'USD': {'name': 'US Dollar', 'symbol': '$', 'flag': '🇺🇸', 'rate': 1.0},
+                    'CNY': {'name': 'Chinese Yuan', 'symbol': '¥', 'flag': '🇨🇳', 'rate': 7.25},
+                },
+                'source': 'default'
+            }
+        }), 500
+
 @app.route('/api/photo-remove-bg', methods=['POST'])
 def photo_remove_bg():
     """AI一键去背景"""
