@@ -71,6 +71,10 @@ def exchange_rate():
             }
         }), 500
 
+# Register blog blueprint
+from routes.blog import blog_bp
+app.register_blueprint(blog_bp, url_prefix='/api/blog')
+
 @app.route('/api/photo-remove-bg', methods=['POST'])
 def photo_remove_bg():
     """AI一键去背景"""

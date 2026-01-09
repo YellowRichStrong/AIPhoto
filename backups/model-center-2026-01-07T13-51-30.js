@@ -900,19 +900,7 @@ function calculateCost() {
     const callCount = parseInt(document.getElementById('callCount').value) || 0;
     const currency = document.getElementById('currencySelect').value;
     
-    // Check if model is selected
-    if (!modelKey) {
-        alert('Please select a provider and model first!');
-        return;
-    }
-    
     const model = modelsData.pricing[modelKey];
-    
-    // Check if model exists in pricing data
-    if (!model) {
-        alert('Model pricing data not found. Please select a different model.');
-        return;
-    }
     
     // Get currency info from exchangeRates
     const currencyInfo = exchangeRates[currency] || exchangeRates['USD'];

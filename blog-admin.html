@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Admin - AI Model Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .admin-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .admin-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .admin-title i {
+            color: #667eea;
+        }
+
+        .back-to-site {
+            margin-top: 1rem;
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .back-to-site:hover {
+            color: #764ba2;
+        }
+
+        .admin-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .admin-panel {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .panel-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .panel-title i {
+            color: #667eea;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            min-height: 250px;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #229954;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .articles-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .article-item {
+            padding: 1.5rem;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .article-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+        }
+
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.8rem;
+        }
+
+        .article-title {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.1rem;
+            flex: 1;
+        }
+
+        .article-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: #666;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .message.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 968px) {
+            .admin-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 class="admin-title">
+                <i class="fas fa-cog"></i>
+                Blog Admin Panel
+            </h1>
+            <a href="index.html" class="back-to-site">
+                <i class="fas fa-arrow-left"></i> Back to Site
+            </a>
+        </div>
+
+        <div class="admin-content">
+            <!-- Left Panel: Create/Edit Article -->
+            <div class="admin-panel">
+                <h2 class="panel-title">
+                    <i class="fas fa-edit"></i>
+                    <span id="formTitle">Create New Article</span>
+                </h2>
+
+                <div id="messageBox" class="message"></div>
+
+                <form id="articleForm">
+                    <input type="hidden" id="articleId" value="">
+                    
+                    <div class="form-group">
+                        <label class="form-label">Article Title *</label>
+                        <input type="text" id="articleTitle" class="form-input" placeholder="Enter article title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Author Name *</label>
+                        <input type="text" id="articleAuthor" class="form-input" placeholder="Enter author name" value="Admin" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Article Content *</label>
+                        <textarea id="articleContent" class="form-textarea" placeholder="Write your article content here..." required></textarea>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem;">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i>
+                            Publish Article
+                        </button>
+                        <button type="button" class="btn" onclick="cancelEdit()" id="cancelBtn" style="display: none; background: #95a5a6; color: white;">
+                            <i class="fas fa-times"></i>
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right Panel: Article List -->
+            <div class="admin-panel">
+                <h2 class="panel-title">
+                    <i class="fas fa-list"></i>
+                    Published Articles
+                </h2>
+
+                <div class="articles-list" id="articlesList">
+                    <!-- Articles will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let editingArticleId = null;
+
+        // API Configuration - Auto detect environment
+        const API_BASE_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:5001/api/blog'
+            : 'https://aitoday.me.uk/api/blog';  // 改成你的实际域名
+
+        // Load articles on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadArticles();
+        });
+
+        // Handle form submission
+        document.getElementById('articleForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('articleTitle').value.trim();
+            const author = document.getElementById('articleAuthor').value.trim();
+            const content = document.getElementById('articleContent').value.trim();
+            const articleId = document.getElementById('articleId').value;
+
+            if (!title || !author || !content) {
+                showMessage('Please fill in all fields', 'error');
+                return;
+            }
+
+            const articleData = {
+                title: title,
+                author: author,
+                content: content
+            };
+
+            try {
+                let url = `${API_BASE_URL}/articles`;
+                let method = 'POST';
+
+                if (articleId) {
+                    // Update existing article
+                    url = `${API_BASE_URL}/articles/${articleId}`;
+                    method = 'PUT';
+                }
+
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(articleData)
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    showMessage(articleId ? 'Article updated successfully!' : 'Article published successfully!', 'success');
+                    resetForm();
+                    loadArticles();
+                } else {
+                    showMessage('Failed to save article: ' + data.message, 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Failed to save article. Please try again.', 'error');
+            }
+        });
+
+        // Load articles
+        async function loadArticles() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/articles`);
+                const data = await response.json();
+
+                const container = document.getElementById('articlesList');
+
+                if (data.status === 'success' && data.articles.length > 0) {
+                    // Sort by date descending
+                    const articles = data.articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    
+                    let html = '';
+                    articles.forEach(article => {
+                        html += `
+                            <div class="article-item">
+                                <div class="article-header">
+                                    <div class="article-title">${article.title}</div>
+                                    <div class="article-actions">
+                                        <button class="btn btn-success" onclick="editArticle(${article.id})" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger" onclick="deleteArticle(${article.id})" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="article-meta">
+                                    <span><i class="fas fa-calendar"></i> ${formatDate(article.date)}</span>
+                                    <span><i class="fas fa-user"></i> ${article.author}</span>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    container.innerHTML = html;
+                } else {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <p>No articles yet</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading articles:', error);
+            }
+        }
+
+        // Edit article
+        async function editArticle(articleId) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/articles/${articleId}`);
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    const article = data.article;
+                    document.getElementById('articleId').value = article.id;
+                    document.getElementById('articleTitle').value = article.title;
+                    document.getElementById('articleAuthor').value = article.author;
+                    document.getElementById('articleContent').value = article.content;
+                    
+                    document.getElementById('formTitle').textContent = 'Edit Article';
+                    document.getElementById('submitBtn').innerHTML = '<i class="fas fa-save"></i> Update Article';
+                    document.getElementById('cancelBtn').style.display = 'inline-flex';
+                    
+                    editingArticleId = articleId;
+                    
+                    // Scroll to form
+                    document.querySelector('.admin-panel').scrollIntoView({ behavior: 'smooth' });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Failed to load article', 'error');
+            }
+        }
+
+        // Delete article
+        async function deleteArticle(articleId) {
+            if (!confirm('Are you sure you want to delete this article?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/articles/${articleId}`, {
+                    method: 'DELETE'
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    showMessage('Article deleted successfully!', 'success');
+                    loadArticles();
+                    if (editingArticleId === articleId) {
+                        resetForm();
+                    }
+                } else {
+                    showMessage('Failed to delete article', 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Failed to delete article', 'error');
+            }
+        }
+
+        // Cancel edit
+        function cancelEdit() {
+            resetForm();
+        }
+
+        // Reset form
+        function resetForm() {
+            document.getElementById('articleForm').reset();
+            document.getElementById('articleId').value = '';
+            document.getElementById('formTitle').textContent = 'Create New Article';
+            document.getElementById('submitBtn').innerHTML = '<i class="fas fa-paper-plane"></i> Publish Article';
+            document.getElementById('cancelBtn').style.display = 'none';
+            editingArticleId = null;
+        }
+
+        // Show message
+        function showMessage(text, type) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = text;
+            messageBox.className = `message ${type} show`;
+            
+            setTimeout(() => {
+                messageBox.classList.remove('show');
+            }, 5000);
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+    </script>
+</body>
+</html>
